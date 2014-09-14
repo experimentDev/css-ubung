@@ -1,0 +1,22 @@
+/*This stylesheet contains selectors that match lines on the paragraph, the first letter and other
+things that you can do with CSS. Notice that we are using the pseudo element "::"
+*/
+
+/*Targeting the first line as it fits within the browser window. So it is based on the container
+and will dynamically update as the size of your page changes. But remember that you don't have a ton of
+control so don't go too wild*/
+p::first-line{
+    font-weight:bold;
+    font-size:1.5em;
+    /*This won't apply based on the way this targeting works*/
+    margin-bottom:100px;
+}
+
+/*Targeting and applying styles to the first letter*/
+p::first-letter{
+    font-size: 2em;
+    font-weight: bold;
+    float:left;
+    padding-right:15px;
+    font-family: 'Lobster', cursive ;
+}
