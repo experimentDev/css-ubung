@@ -1,0 +1,32 @@
+/*This stylesheet contains css that scales an image by using transformations. When using transformations
+remember that you might need to use the vendor prefixes in order to maintain compatibility across
+browsers.
+
+You can also use "transitions" to delay or apply effects to your transformations.
+    Best practice:
+    - Set your transition on the Base element
+
+Note: "transform" doesn't affect its surrounding elements it is as if it is increasing
+as a "position:absolute" element. Changing the attributes such as the width of
+an image rather than using transformation will cause other elements within the page to move around.
+*/
+
+img{
+    /*Declaring that tranform must transition over the course of 1 second*/
+    transition: transform .3s;
+    margin-right: 50px;
+    margin-bottom: 30px;
+}
+
+
+/*Scale the image whenever someone hovers over it*/
+img:hover{
+    /*Using a transformation to make the image 200% bigger, rotate 90 degrees.
+    Also remember that you can apply multiple transforms on the same line!*/
+    transform: scale(2) rotate(90deg) ;
+}
+
+/*Using a class to increase the width of certain images rather than using transform so you can see the differences*/
+.notransform:hover{
+    width:400px;
+}
