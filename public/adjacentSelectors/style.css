@@ -1,0 +1,43 @@
+.container{
+    width:800px;
+    margin: auto;
+    /*Setting overflow:hidden to make sure the container contains the floated items*/
+    overflow:hidden;
+}
+
+li{
+    float:left;
+    margin-right: 20px;
+    list-style:none;
+    width:200px;
+    height:200px;
+    background: red;
+    margin-bottom: 20px;
+    /*Setting line-height equal to the height of the container to center the text vertically*/
+    line-height:200px;
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    background: #e3e3e3;
+}
+
+/*Adjacent Selectors "+" , Sibling Selectors "~"  */
+/*Target the p adjacent to the h2 by using the "+" selector. This selector would target
+all p elements that proceed a h2 */
+h2 + p{
+    font-size:2em;
+}
+
+/*Now if you wanted to be more flexible and target any p that comes after an h2 regardless
+of whether there is something within it you can use the sibling selectors. An element
+counts as a sibling as long as its on the same parent element and comes after the element
+you are targeting*/
+h2 ~ p{
+    font-size: 2em;
+}
+
+/*Note: Remember that you can combine your selectors by using a "," between them, so the above
+can be rewritten as*/
+h2+p, h2~p{
+    font-size: 2em;
+}

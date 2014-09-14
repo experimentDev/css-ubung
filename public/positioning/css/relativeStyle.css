@@ -1,0 +1,23 @@
+/**
+Relative positioning is the easiest of all the types of positions available.
+When you set the position context to relative "position:relative" on an element, it means that the left, top, bottom
+and right values will be in relation to this element and its natural state on the page.
+
+In contrast to "position:absolute", relative does not take the element out of the flow of the page, but rather you are
+ nudging the element in one direction.
+*/
+#parentRelative{
+    width: 600px;
+    height:400px;
+    background: #666;
+}
+
+#childRelative{
+    width:150px;
+    height:150px;
+    background:red;
+    /*Set position context*/
+    position: relative;
+    /*Set it 30px to the right*/
+    right:30px;
+}

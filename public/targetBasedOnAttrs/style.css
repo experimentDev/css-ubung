@@ -1,0 +1,48 @@
+/*This css style sheet will contain selectors that target elements within the page
+based on the values from their "href" attributes. Just in case you are wondering you use
+regular expressions to do the matches within the element[attr regex value] like a[href$='.txt']*/
+
+
+/*Targeting by using a specific value from the href. This has been available since CSS2*/
+a[href='http://www.foodnetwork.com']{
+    color: green;
+}
+
+/*Match elements that contain the word best within their href. To do this you can use the
+"*=" which means 'that contains'*/
+a[href*='best']{
+    color:aqua;
+}
+
+/*Match all elements that contain a value of 'pdf' at the end, and use the
+pseudo class :before" to add the word 'PDF' in-front of it. This is a great example
+of how you can style or add style to elements within your page based on their contents
+or the value of their attributes!*/
+a[href$='pdf']:before{
+    /*Appending the word PDF at the beginning so we know this is a file*/
+    content: 'PDF';
+    font-size: 11px;
+    color:white;
+    background:black;
+    border-radius:8px;
+    padding:2px;
+}
+
+/*Match all elements that start with "http". Notice that we are matching
+all links that point to pages outside our page*/
+a[href^='http']{
+    font-weight:bold;
+    font-size:15px;
+    text-decoration: none;
+}
+
+a[href^='http']:after{
+    content: 'External link';
+    font-size: 10px;
+    color:white;
+    background: black;
+    border-radius:8px;
+    padding:2px;
+}
+
+

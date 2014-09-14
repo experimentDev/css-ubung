@@ -1,0 +1,31 @@
+/**
+Absolute positioning. This context is based on the nearest position parent...so in this case the parent of child is
+"parentAbsolute", but since we haven't set its positioning it uses the window as its basis.
+
+Think of setting "position:absolute" of an element as
+        "Place yourself #px to some position of your nearest positioned parent"
+
+Also, items that have their positon set to "absolute" are not affected by other items on the page. This is because
+they are taken out of the flow of the page, and place them wherever you want.
+*/
+
+body{
+    /*Fixes your background so that it doesn't scroll around even if your page's content is larger than your image*/
+    background:#e3e3e3 fixed;
+}
+
+#parentAbsolute{
+    width: 600px;
+    background: #666;
+    position: relative;
+}
+
+#childAbsolute{
+    width:150px;
+    height:150px;
+    background:red;
+    /*Set position context*/
+    position: absolute;
+    /*Go 30px to the right of your nearest positioned parent*/
+    right:30px;
+}

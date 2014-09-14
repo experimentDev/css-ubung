@@ -1,0 +1,53 @@
+/*
+When you float something everything else jumps up.
+
+Floats are pretty weird and hard to get in CSS at the beginning. Here is an example of applying some css styles to
+some divs within an index.html page. Notice how we are setting the "container" div to 600px and then playing around with
+the width and padding from the children divs accordingly by using "float-left" and "float-right"
+
+Also take note of the use of "clear" within the footer.
+*/
+#container{
+    width:600px;
+    margin:auto;
+    background: #666;
+}
+
+h2{
+    margin-top:0;
+}
+
+#header{
+    background:green;
+    padding: 20px;
+}
+
+#header h1{
+    margin-top:0;
+}
+
+#header p{
+    margin-bottom: 0;
+}
+
+#sidebar{
+    background: #e3e3e3;
+    float: left;
+    width:210px;
+    padding: 20px;
+}
+
+
+#main{
+    background: #666;
+    float:right;
+    width:310px;
+    padding: 20px;
+}
+
+#footer{
+    background: black;
+    color:white;
+    /*clear: tells this div to clear any floated elements above it. You can pass "left" "right" or "both" */
+    clear:both;
+}
