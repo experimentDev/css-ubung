@@ -1,0 +1,155 @@
+/*This style sheet contains captions for the image on the page.
+It uses transitions in order to animate the image, captions and other
+goodies on the page
+
+Side Notes:
+box-sizing: border-box;
+    What this property does is allow us to specify the box model. With this setting,
+    the padding is consider part of the height-width of the element
+
+Using opacity rather than display
+    Rather than using "display:none", you can use opacity and change
+    it to 1 when the user hover over the parent element "figure". This comes in handy when
+    you start using transitions like setting "transition: opacity 1s"
+
+Setting overflow:hidden on parent elements
+    By setting overflow:hidden, you prevent the children elements to go beyond the boundaries
+    of the parent element. That way their transformations or any changes that might make them
+    go beyond the size of their parents is contained within it.
+
+2 way transitions:
+    If you want 2 way transitions (origin->final, final->origin) it is always better to apply
+    the transition to the base state rather than on the final state. For example, in this case we
+    applied the transition for zooming in on the image on "figure img" rathen than "figure:hover img".
+    Otherwise if you only apply it to "figure:hover img", the transition will only be applied to this state
+
+Sequential Animations:
+    If you want to use sequential animations/transitions you can use "transition-delay: #seconds".
+    What this says is "go to the next animation or transition, and delay it until this one completes"
+*/
+
+body{
+    width:400px;
+    /*Setting to 50 top to push it down, and auto for the rest
+    so content is centered*/
+    margin: 50px auto;
+    font-family: sans-serif;
+}
+
+img{
+    /*Setting width to 100% so it doesn't exceed the width of
+    containing parent*/
+    width: 100%;
+}
+
+figure{
+    margin:0;
+    /*Setting positioning context on the figure so figcaption
+    remains within it*/
+    position:relative;
+    border: 5px  solid white;
+    /*Applying a box shadow so we can see the border. 4px worth of blur &
+    an alpha of 30% or .3*/
+    box-shadow: 0 0 4px rgba(0,0,0,.3);
+    /*Setting display to block as "figure" is an HTML5 element. This will prevent
+    issues with older browsers*/
+    display: block;
+    cursor:pointer;
+    /*Setting overflow:hidden so that the transformations from children elements
+    are contained within the parent "figure" element*/
+    overflow:hidden;
+}
+
+/*Declaring or base on/off settings for when the user hovers over*/
+figure:hover figcaption{
+    opacity: 1;
+    -webkit-transform: rotate(0);
+    -moz-transform: rotate(0);
+    -ms-transform: rotate(0);
+    -o-transform: rotate(0);
+    transform: rotate(0);
+}
+
+
+/*figcaption element contains all the text for the image*/
+figcaption{
+    /*Rather than using "display:none", you can use opacity and change
+    it to 1 when the user hover over the parent element "figure". This comes in handy when
+    you start using transitions*/
+    opacity:0;
+    position:absolute;
+    top:0;
+    background: rgba(0,0,0,.4);
+    color:white;
+    /*Setting the height & width to 100% so it doesn't chop off*/
+    height: 100%;
+    width: 100%;
+
+    /*Now we can use transition to change the opacity of "figcaption" elements
+    & make the change transition over 1 second. If set to "all" the transition applies
+    to all transformations. "ease-in" tells the transition to slowly ease in*/
+    -webkit-transition: all .4s ease-in;
+    -moz-transition: all .4s ease-in;
+    -ms-transition: all .4s ease-in;
+    -o-transition: all .4s ease-in;
+    transition: all .4s ease-in;
+
+    /*Applying a delay so that the overlay (figcaption) shows up after the image zooms in.
+    This allows you to create sequential animations.*/
+    transition-delay: .5s;
+    -webkit-transition-delay: .5s;
+    -moz-transition-delay: .5s;
+    -ms-transition-delay: .5s;
+    -o-transition-delay: .5s;
+    transition-delay: .5s;
+
+    /*Now add a transformation so the feedback to the user is better*/
+    transform: rotate(360deg);
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+
+
+}
+
+/*Applying transition to the base state, that way when the user hovers away
+the transition kicks back to the original state rather than going straight back.
+Check 2 way note at the top for more info*/
+figure img{
+    -webkit-transition: all 1.5s;
+    -moz-transition: all 1.5s;
+    -ms-transition: all 1.5s;
+    -o-transition: all 1.5s;
+}
+
+/*Adjust the img so that when we hover over the figure element we zoom a little bit*/
+figure:hover img{
+    -webkit-transform: scale(1.1);
+    -moz-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    -o-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/*Rather than applying padding on the parent element, we apply it to the
+children so they don't get cut off and can use the whole space of the parent*/
+figcaption h3, figcaption p{
+    /*10px on top& bottom and 20px on left&right*/
+    padding: 10px 20px;
+    /*Removing default margins added by browser*/
+    margin-bottom:0;
+    margin-top:0;
+}
+
+/*Adding style specific to the h3 within figcaption*/
+figcaption h3{
+    background: black;
+    /*Adding a small margin to our h3*/
+    margin-top:20px;
+}
+
+figcaption a{
+    color: white;
+}
+
